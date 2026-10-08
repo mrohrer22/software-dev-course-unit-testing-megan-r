@@ -16,35 +16,33 @@ Include minimal or no existing tests, encouraging students to create them from s
 
 ```js
 function calculateDiscount(price, discountRate) {
-    if (typeof price !== 'number' || typeof discountRate !== 'number') return null;
+    if (typeof price !== 'number' || typeof discountRate !== 'number') return null;  
     if (discountRate < 0 || discountRate > 1) return null;
-    // TODO: Implement logic
-    return null;
+    let reducePrice = price - (price*discountRate);
+    return reducePrice;
 }
 
 function filterProducts(products, callback) {
     if (!Array.isArray(products) || typeof callback !== 'function') return [];
-    // TODO: Implement filtering logic
-    return [];
+    return products.filter(callback);
 }
 
 function sortInventory(inventory, key) {
     if (!Array.isArray(inventory) || typeof key !== 'string') return [];
-    // TODO: Implement sorting logic
-    return [];
+    return inventory.sort((a, b) => {
+        if (a[key] < b[key]) {
+            return -1;
+        }
+        if (a[key] > b[key]) {
+            return 1;
+        }
+        return 0;
+    });
 }
+
+module.exports = {calculateDiscount, filterProducts, sortInventory};
+
 ```
-
-## 👥 Form Groups
-
-Divide students into small groups of 3–5. Each group will be responsible for writing unit tests for one or more methods in the shared codebase.
-
-### 🧑‍🤝‍🧑 Assign Roles Within the Group:
-
-- **Test Writer**: Writes initial test cases.
-- **Code Reviewer**: Reviews and improves the test cases.
-- **Debugger**: Ensures the implementation passes all tests.
-- **Presenter**: Summarizes the group’s contributions for sharing with the class.
 
 ---
 
